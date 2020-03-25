@@ -54,6 +54,7 @@ body {
   margin: 1rem auto;
 }
 .save-button {
+  text-align: center;
   width: 20%;
   margin: 1%;
   border: 1px solid grey;
@@ -68,6 +69,11 @@ body {
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
+}
+
+.buttons-on-movie-card{
+  display: flex;
+  justify-content: center;
 }
 
 .movie-warning {
