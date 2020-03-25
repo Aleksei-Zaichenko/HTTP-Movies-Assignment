@@ -75,5 +75,12 @@ body {
   text-align: center;
 }
 
-.buttons-on-movie-card{
+.update-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-form h2{
+  margin: 0 2%;
 }

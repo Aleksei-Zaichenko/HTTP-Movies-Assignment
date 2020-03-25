@@ -8,7 +8,7 @@ const initialInfo = {
     metascore: ''
   };
 
-export const UpdateMovieInfo = ({savedList}) => {
+export const UpdateMovieInfo = ({movieList, setMovieList}) => {
 
     const {id} = useParams();
     const {push} = useHistory();
@@ -30,16 +30,29 @@ export const UpdateMovieInfo = ({savedList}) => {
     };
 
     useEffect(()=>{
-        const movieToUpdate = savedList.find(movie => `${movie.id}` === id)
+        const movieToUpdate = movieList.find(movie => `${movie.id}` === id)
         if(movieToUpdate){
             setMovieInfo(movieToUpdate);
         }
-    }, [savedList, id]);
+    }, [movieList, id]);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        axios
+            .put(`http://localhost:5000/api/movies/${id}`, movieInfo)
+            .then(res => {
+                const newMovieList = [...movieList.filter(movie => `${movie.id}` !== id)]
+                newMovieList.unshift(res.data);
+                setMovieList(newMovieList);
+                push(`/movies/${id}`);
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
-        <div>
+        <div className='update-form'>
             <h2>Edit the movie info</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input 
                     type="text"
                     name="title"
