@@ -54,9 +54,8 @@ body {
   margin: 1rem auto;
 }
 .save-button {
-  position: absolute;
-  top: 25px;
-  right: 25px;
+  width: 20%;
+  margin: 1%;
   border: 1px solid grey;
   padding: 5px 10px;
   background-color: lightseagreen;
@@ -74,4 +73,7 @@ body {
 .movie-warning {
   color: red;
   text-align: center;
+}
+
+.buttons-on-movie-card{
 }
